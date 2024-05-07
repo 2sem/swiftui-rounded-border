@@ -11,7 +11,7 @@ However I wanted more customable.
 Package(
   ...,
   dependencies: [
-    .package(url: "https://github.com/2sem/swiftui-rounded-border", from: "0.0.1")
+    .package(url: "https://github.com/2sem/swiftui-rounded-border", from: "0.0.2")
   ], ...
 )
 ```
@@ -23,7 +23,7 @@ let project = Project(
     packages: [
         ...,
         .remote(url: "https://github.com/2sem/swiftui-rounded-border",
-            requirement: .upToNextMinor(from: "0.0.1")),
+            requirement: .upToNextMinor(from: "0.0.2")),
     ],
     targets: [
         .target(
