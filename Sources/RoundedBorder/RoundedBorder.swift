@@ -65,16 +65,17 @@ public struct RoundedBorderModifier<IN_S: ShapeStyle, OUT_S: ShapeStyle>: ViewMo
     
     public func body(content: Content) -> some View {
         let offset = makePositionedBorderOffset()
+        let insideCornerRadius = makeInsideCornerRadius()
         
         if #available(iOS 15.0, *) {
             return content
-                .clipShape(RoundedRectangle(cornerRadius: makeInsideCornerRadius()))
+                .clipShape(RoundedRectangle(cornerRadius: insideCornerRadius))
                 .overlay {
                     GeometryReader(content: { geometry in
                         let borderSize = makePositionedBorderSize(geometry.size)
                         let outsideBorderSize = makePositionedOutsideBorderSize(geometry.size)
                         let insideBorderSize = makePositionedinsideBorderSize(geometry.size)
-                        let insideCornerRadius = makeInsideCornerRadius()
+                        
                         
                         ZStack {
                             borderContent   // desitination
