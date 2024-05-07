@@ -68,6 +68,7 @@ public struct RoundedBorderModifier<IN_S: ShapeStyle, OUT_S: ShapeStyle>: ViewMo
         
         if #available(iOS 15.0, *) {
             return content
+                .clipShape(RoundedRectangle(cornerRadius: makeInsideCornerRadius()))
                 .overlay {
                     GeometryReader(content: { geometry in
                         let borderSize = makePositionedBorderSize(geometry.size)
